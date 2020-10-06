@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: database-mysql
+  namespace: default
+  labels:
+    app: database-mysql
+spec:
+  containers:
+  - image: mysql
+    name: database-mysql
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    env:
+    - name: MYSQL_ROOT_PASSWORD
+      value: Pass123.      
+    ports:
+    - containerPort:  3306
+      name:  TCP    
+  restartPolicy: Always

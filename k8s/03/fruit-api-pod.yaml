@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: java-fruit-api
+  namespace: default
+  labels:
+    app: java-fruit-api
+spec:
+  containers:
+  - name: java-fruit-api
+    image: k8smitocode/java-fruit-api:latest
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    ports:
+    - containerPort:  8090
+      name:  TCP     
+  restartPolicy: Always
