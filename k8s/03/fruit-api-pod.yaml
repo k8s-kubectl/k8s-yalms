@@ -18,5 +18,5 @@ spec:
         memory: 200Mi
     ports:
     - containerPort:  8090
-      name:  TCP     
+      name:  http     
   restartPolicy: Always
