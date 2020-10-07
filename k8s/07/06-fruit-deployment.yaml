@@ -16,7 +16,7 @@ spec:
         app: fruit-sf
     spec:
       containers:
-        - name: fruit-sf
+        - name: fruit-api
           image: k8smitocode/java-fruit-api:latest
           resources:
             requests:
