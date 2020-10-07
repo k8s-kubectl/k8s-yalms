@@ -57,5 +57,17 @@ spec:
                   name: mysql-secret
                   key: MYSQL_PASSWORD
           ports:
-            - containerPort: 8090         
+            - containerPort: 8090
+          volumeMounts:
+            - name: fruit-sf-storage
+              mountPath: /var/www/html
       restartPolicy: Always
+  volumeClaimTemplates:
+    - metadata:
+        name: fruit-sf-storage
+      spec:
+        resources:
+          requests:
+            storage: 1Gi
+        accessModes:
+          - ReadWriteOnce
