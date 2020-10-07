@@ -9,12 +9,7 @@ spec:
   selector:
     matchLabels:
       app: fruit-sf
-  replicas: 4
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+  replicas: 4  
   template:
     metadata:
       labels:
