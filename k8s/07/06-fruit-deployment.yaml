@@ -57,12 +57,5 @@ spec:
                   name: mysql-secret
                   key: MYSQL_PASSWORD
           ports:
-            - containerPort: 8090
-          volumeMounts:
-            - name: fruit-pvc-storage
-              mountPath: /var/www/html
-      volumes:
-        - name: fruit-pvc-storage
-          persistentVolumeClaim:
-            claimName: fruit-pvc
+            - containerPort: 8090         
       restartPolicy: Always
