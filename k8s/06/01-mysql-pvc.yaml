@@ -6,7 +6,7 @@ metadata:
   labels:
       app: mysql
 spec:
-  storageClassName: ""
+  storageClassName: standard
   accessModes:
   - ReadWriteOnce
   resources:
