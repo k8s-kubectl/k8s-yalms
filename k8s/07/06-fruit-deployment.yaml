@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fruit-sf
+  namespace: name2
+  labels:
+    app: fruit-sf
+spec:
+  selector:
+    matchLabels:
+      app: fruit-sf
+  replicas: 4
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: fruit-sf
+    spec:
+      containers:
+        - name: fruit-sf
+          image: k8smitocode/java-fruit-api:latest
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 100m
+              memory: 100Mi
+          env:
+            - name: DATABASE_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: fruit-secret
+                  key: DATABASE_HOST
+            - name: DATABASE_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: fruit-secret
+                  key: DATABASE_PORT
+            - name: DATABASE_NAME
+              valueFrom:
+                secretKeyRef:
+                  name: fruit-secret
+                  key: DATABASE_NAME
+            - name: DATABASE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: fruit-secret
+                  key: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: MYSQL_PASSWORD
+          ports:
+            - containerPort: 8090
+          volumeMounts:
+            - name: fruit-pvc-storage
+              mountPath: /var/www/html
+      volumes:
+        - name: fruit-pvc-storage
+          persistentVolumeClaim:
+            claimName: fruit-pvc
+      restartPolicy: Always
