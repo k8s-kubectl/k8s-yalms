@@ -5,7 +5,7 @@ metadata:
   namespace: name1
 spec:
   capacity:
-    storage: 15Gi
+    storage: 2Gi
   accessModes:
   - ReadWriteOnce
   - ReadOnlyMany
