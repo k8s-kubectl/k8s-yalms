@@ -10,7 +10,7 @@ spec:
     app: fruit-sf
   type: LoadBalancer
   ports:
-    - name: fruit-sf
+    - name: http
       port: 8090
       targetPort: 8090
       protocol: TCP
