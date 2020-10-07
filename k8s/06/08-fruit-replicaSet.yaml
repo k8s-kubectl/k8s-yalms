@@ -9,11 +9,11 @@ spec:
   replicas: 2
   selector:
     matchLabels:
-      tier: fruit
+      app: fruit
   template:
     metadata:
       labels:
-        tier: fruit
+        app: fruit
     spec:
       volumes:
         - name: fruit-pvc-storage
