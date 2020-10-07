@@ -4,12 +4,10 @@ metadata:
   name: fruit-pv
   namespace: name1
 spec:
+  storageClassName: manual
   capacity:
     storage: 10Gi
   accessModes:
   - ReadWriteOnce
-  - ReadOnlyMany
   hostPath:
-    path: "/mnt/data"
-  persistentVolumeReclaimPolicy: Retain
-  
+    path: "/mnt/data"  
