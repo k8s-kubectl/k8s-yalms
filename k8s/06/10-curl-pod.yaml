@@ -17,5 +17,5 @@ spec:
           cpu: 100m
           memory: 200Mi
       command:
-        ["/bin/sh", "-c", "curl --location --request GET '10.0.4.3:8090' curl --location --request POST '10.0.4.3:8090/create?name=apple' curl --location --request POST '10.0.4.3:8090/create?name=apricot' curl --location --request GET '10.0.4.3:8090/list'"]
+        ["/bin/sh", "-c", "curl --location --request GET 'fruit:8090' curl --location --request POST 'fruit:8090/create?name=apple' curl --location --request POST 'fruit:8090/create?name=apricot' curl --location --request GET 'fruit:8090/list'"]
   restartPolicy: Never
