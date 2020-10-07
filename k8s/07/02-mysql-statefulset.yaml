@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: mysql-sf
-  namespace: name1
+  namespace: name2
   labels:
     app: mysql
 spec:
